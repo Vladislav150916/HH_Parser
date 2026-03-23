@@ -1,0 +1,124 @@
+{
+  "id": "131118470",
+  "premium": false,
+  "name": "Java разработчик (ученик)",
+  "department": null,
+  "has_test": false,
+  "response_letter_required": false,
+  "area": {
+    "id": "3",
+    "name": "Екатеринбург",
+    "url": "https://api.hh.ru/areas/3"
+  },
+  "salary": {
+    "from": 60000,
+    "to": null,
+    "currency": "RUR",
+    "gross": true
+  },
+  "salary_range": {
+    "from": 60000,
+    "to": null,
+    "currency": "RUR",
+    "gross": true,
+    "mode": {
+      "id": "MONTH",
+      "name": "За месяц"
+    },
+    "frequency": null
+  },
+  "type": {
+    "id": "open",
+    "name": "Открытая"
+  },
+  "address": null,
+  "response_url": null,
+  "sort_point_distance": null,
+  "published_at": "2026-03-11T11:23:21+0300",
+  "created_at": "2026-03-11T11:23:21+0300",
+  "archived": false,
+  "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=131118470",
+  "branding": {
+    "type": "MAKEUP",
+    "tariff": null
+  },
+  "show_logo_in_search": true,
+  "show_contacts": false,
+  "insider_interview": null,
+  "url": "https://api.hh.ru/vacancies/131118470?host=hh.ru",
+  "alternate_url": "https://hh.ru/vacancy/131118470",
+  "relations": [],
+  "employer": {
+    "id": "6093775",
+    "name": "Aston",
+    "url": "https://api.hh.ru/employers/6093775",
+    "alternate_url": "https://hh.ru/employer/6093775",
+    "logo_urls": {
+      "original": "https://img.hhcdn.ru/employer-logo-original-round/6574068.jpeg",
+      "90": "https://img.hhcdn.ru/employer-logo-round/6574069.jpeg",
+      "240": "https://img.hhcdn.ru/employer-logo-round/6574070.jpeg"
+    },
+    "vacancies_url": "https://api.hh.ru/vacancies?employer_id=6093775",
+    "country_id": 1,
+    "accredited_it_employer": true,
+    "trusted": true
+  },
+  "snippet": {
+    "requirement": "Законченное высшее или среднее специальное (профильное) образование. Базовые знания \u003Chighlighttext\u003EJava\u003C/highlighttext\u003E. Знание что такое Git и как с ним работать. ",
+    "responsibility": null
+  },
+  "contacts": null,
+  "schedule": {
+    "id": "remote",
+    "name": "Удаленная работа"
+  },
+  "working_days": [],
+  "working_time_intervals": [],
+  "working_time_modes": [],
+  "accept_temporary": false,
+  "fly_in_fly_out_duration": [],
+  "work_format": [
+    {
+      "id": "REMOTE",
+      "name": "Удалённо"
+    }
+  ],
+  "working_hours": [
+    {
+      "id": "HOURS_8",
+      "name": "8 часов"
+    }
+  ],
+  "work_schedule_by_days": [
+    {
+      "id": "FIVE_ON_TWO_OFF",
+      "name": "5/2"
+    }
+  ],
+  "accept_labor_contract": false,
+  "civil_law_contracts": [],
+  "night_shifts": false,
+  "professional_roles": [
+    {
+      "id": "96",
+      "name": "Программист, разработчик"
+    }
+  ],
+  "accept_incomplete_resumes": false,
+  "experience": {
+    "id": "noExperience",
+    "name": "Нет опыта"
+  },
+  "employment": {
+    "id": "full",
+    "name": "Полная занятость"
+  },
+  "employment_form": {
+    "id": "FULL",
+    "name": "Полная"
+  },
+  "internship": true,
+  "adv_response_url": null,
+  "is_adv_vacancy": false,
+  "adv_context": null
+}

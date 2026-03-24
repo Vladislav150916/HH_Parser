@@ -1,6 +1,8 @@
 package ru.golyakovV.hhParser;
 
 import com.google.gson.Gson;
+import ru.golyakovV.hhParser.model.VacanciesList;
+import ru.golyakovV.hhParser.model.Vacancy;
 
 import java.util.List;
 

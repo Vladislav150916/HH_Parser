@@ -1,4 +1,4 @@
-package ru.golyakovV.hhParser;
+package ru.golyakovV.hhParser.model;
 
 import com.google.gson.annotations.SerializedName;
 

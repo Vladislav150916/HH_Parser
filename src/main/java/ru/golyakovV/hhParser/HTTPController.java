@@ -41,7 +41,6 @@ public class HTTPController {
         HttpRequest request = createRequest();
         HttpResponse<String> response = sendRequest(request);
         System.out.println("URI = " + uri);
-        System.out.println(response.body());
         return response.body();
     }
 

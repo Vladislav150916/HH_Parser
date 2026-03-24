@@ -1,6 +1,7 @@
 package ru.golyakovV.hhParser;
 
-import java.net.http.HttpResponse;
+import ru.golyakovV.hhParser.model.Vacancy;
+
 import java.util.List;
 import java.util.Map;
 
@@ -14,7 +15,9 @@ public class Main {
 
         for (Vacancy v : vacancies){
             System.out.println(v.getName());
+            System.out.println(v.getSalary());
             System.out.println(v.getAlternateUrl());
+            System.out.println("---");
         }
 
     }

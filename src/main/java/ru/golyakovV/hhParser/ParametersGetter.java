@@ -11,11 +11,11 @@ public class ParametersGetter {
         Map<String, String> parameters = new HashMap<>();
         Scanner in = new Scanner(System.in);
 
-        System.out.println("Введите название вакансии:");
+        System.out.println("Введите название вакансии (без пробелов, потом добавлю возможность):");
         String vacancyName = in.nextLine();
         parameters.put("vacancyName", vacancyName);
 
-        System.out.println("Введите код города:");
+        System.out.println("Введите код города (3 для Екатеринбурга):");
         String area = in.nextLine();
         parameters.put("area", area);
 

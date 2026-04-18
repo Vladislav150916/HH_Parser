@@ -8,7 +8,7 @@ public class Vacancy {
     @SerializedName("alternate_url")
     private String alternateUrl;  //Ссылка
     private Salary salary;
-
+    //Добавить название компании-работодателя (employer.name)
 
 
 

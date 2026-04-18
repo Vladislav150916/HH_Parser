@@ -23,24 +23,24 @@ public class HTTPController {
         area = parameters.get("area");
     }
 
-    public void setParameters(){
+    public void createURI(){
         try {
             uri = new URI("https://api.hh.ru/vacancies?text=NAME:" + vacancyName + "&area=" + area);
         } catch (URISyntaxException e) {
             e.printStackTrace();
         }
     }
-    public void setParameters(Map<String, String> parameters){
+    public void createURI(Map<String, String> parameters){
         vacancyName = parameters.get("vacancyName");
         area = parameters.get("area");
-        setParameters();
+        createURI();
     }
 
     public String getRawVacancies(){
-        setParameters();
+        createURI();
+        System.out.println("URI = " + uri);
         HttpRequest request = createRequest();
         HttpResponse<String> response = sendRequest(request);
-        System.out.println("URI = " + uri);
         return response.body();
     }
 
@@ -56,6 +56,7 @@ public class HTTPController {
         return request;
     }
 
+    //Добавить проверку кода ответа, если код ответа плох, вывести сообщение об ошибке
     private HttpResponse<String> sendRequest(HttpRequest request){
         HttpResponse<String> response = null;
         try {

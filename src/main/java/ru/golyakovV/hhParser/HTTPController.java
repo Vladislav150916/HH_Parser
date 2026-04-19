@@ -25,15 +25,10 @@ public class HTTPController {
 
     public void createURI(){
         try {
-            uri = new URI("https://api.hh.ru/vacancies?text=NAME:" + vacancyName + "&area=" + area);
+            uri = new URI("https://api.superjob.ru/2.0/vacancies/?keyword=" + vacancyName + "&town=" + area);
         } catch (URISyntaxException e) {
             e.printStackTrace();
         }
-    }
-    public void createURI(Map<String, String> parameters){
-        vacancyName = parameters.get("vacancyName");
-        area = parameters.get("area");
-        createURI();
     }
 
     public String getRawVacancies(){
@@ -50,6 +45,7 @@ public class HTTPController {
                 .uri(uri)
                 .version(HttpClient.Version.HTTP_2)
                 .header("User-Agent", "Mozilla/5.0")
+                .header("X-Api-App-Id", "v3.r.139770910.7f045358b1e7983562768b2942ceb52569415be7.cbf0360e8dfcb4e95b0f78908b6df012e6726a46")
                 .GET()
                 .timeout(Duration.ofSeconds(10))
                 .build();
@@ -66,9 +62,4 @@ public class HTTPController {
         }
         return response;
     }
-
-
-
-
-
 }

@@ -15,10 +15,10 @@ public class ParametersGetter {
         String vacancyName = in.nextLine();
         parameters.put("vacancyName", vacancyName);
 
-        System.out.println("Введите код города (3 для Екатеринбурга):");
+        System.out.println("Введите название города:");
         String area = in.nextLine();
         parameters.put("area", area);
-
+        in.close();
         return parameters;
     }
 }

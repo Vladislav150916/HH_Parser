@@ -2,7 +2,7 @@ package ru.golyakovV.hhParser.model;
 
 import com.google.gson.annotations.SerializedName;
 
-public class Vacancy {
+public class SJVacancy extends VacancyAbstract{
     @SerializedName("profession")
     private String name;
     @SerializedName("link")

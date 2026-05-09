@@ -6,7 +6,7 @@ import org.apache.poi.ss.usermodel.CellStyle;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import ru.golyakovV.hhParser.model.Vacancy;
+import ru.golyakovV.hhParser.model.VacancyAbstract;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -18,31 +18,32 @@ import java.util.Map;
 public class ExcelWriter {
     private String vacancyName;
     private String area;
+    private String site;
     private String filePath;
     private LocalDate date = LocalDate.now();
 
     public ExcelWriter(Map<String, String> parameters){
         vacancyName = parameters.get("vacancyName");
         area = parameters.get("area");
-        filePath = "src/main/java/" + vacancyName + "-" + area + "-" + date + ".xlsx";
+        site = (parameters.get("site").equals("1"))? "HH" : "SJ";
+        filePath = "src/main/java/" + site + "-" + vacancyName + "-" + area + "-" + date + ".xlsx";
         System.out.println(filePath);
     }
 
-    public void write(List<Vacancy> vacancies){
+    public void write(List<? extends VacancyAbstract> vacancies){
 
         XSSFWorkbook wb = new XSSFWorkbook();
         XSSFSheet sheet = wb.createSheet("Вакансии");
-
-
 
         Row headerRow = sheet.createRow(0);
         headerRow.createCell(1).setCellValue("Название вакансии");
         headerRow.createCell(2).setCellValue("Работодатель");
         headerRow.createCell(3).setCellValue("Зарплата от");
         headerRow.createCell(4).setCellValue("Зарплата до");
+        headerRow.createCell(5).setCellValue("Ссылка");
 
         for (int i = 0; i < vacancies.size(); i++){
-            Vacancy v = vacancies.get(i);
+            VacancyAbstract v = vacancies.get(i);
             Row dataRow = sheet.createRow(i + 1);
             dataRow.createCell(0).setCellValue(i + 1);
             dataRow.createCell(1).setCellValue(v.getName());
@@ -57,6 +58,7 @@ public class ExcelWriter {
             } else {
                 dataRow.createCell(4).setCellValue(v.getSalaryTo());
             }
+            dataRow.createCell(5).setCellValue(v.getVacancyUrl());
         }
 
         CellStyle style = wb.createCellStyle();

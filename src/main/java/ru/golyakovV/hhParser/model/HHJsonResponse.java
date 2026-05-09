@@ -4,13 +4,13 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-public class JsonResponse {
-    @SerializedName("objects")
-    private List<Vacancy> vacancies;
-    @SerializedName("total")
+public class HHJsonResponse {
+    @SerializedName("items")
+    private List<HHVacancy> vacancies;
+    @SerializedName("found")
     private int count;
 
-    public List<Vacancy> getVacancies(){
+    public List<HHVacancy> getVacancies(){
         return vacancies;
     }
 }

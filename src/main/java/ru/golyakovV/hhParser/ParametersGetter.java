@@ -11,6 +11,11 @@ public class ParametersGetter {
         Map<String, String> parameters = new HashMap<>();
         Scanner in = new Scanner(System.in);
 
+        //Добавить обработку неверного ввода
+        System.out.println("Выберите на каком сайте хотите искать вакансии.\n1 - HeadHunter (рекомендуется)\n2 - SuperJob");
+        String site = in.nextLine();
+        parameters.put("site", site);
+
         System.out.println("Введите название вакансии (без пробелов, потом добавлю возможность):");
         String vacancyName = in.nextLine();
         parameters.put("vacancyName", vacancyName);

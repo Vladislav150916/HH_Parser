@@ -24,10 +24,10 @@ public class ExcelWriter {
 
     public ExcelWriter(Map<String, String> parameters){
         vacancyName = parameters.get("vacancyName");
-        area = parameters.get("area");
+        area = parameters.get("areaToFileName");
         site = (parameters.get("site").equals("1"))? "HH" : "SJ";
-        filePath = "src/main/java/" + site + "-" + vacancyName + "-" + area + "-" + date + ".xlsx";
-        System.out.println(filePath);
+        filePath = "src/main/results/" + site + "-" + vacancyName + "-" + area + "-" + date + ".xlsx";
+        System.out.println("Файл будет сохранен: " + filePath);
     }
 
     public void write(List<? extends VacancyAbstract> vacancies){

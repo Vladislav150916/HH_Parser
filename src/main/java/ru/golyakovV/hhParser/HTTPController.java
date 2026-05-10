@@ -3,10 +3,12 @@ package ru.golyakovV.hhParser;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.net.URLEncoder;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.net.http.HttpResponse.BodyHandlers;
+import java.nio.charset.StandardCharsets;
 import java.time.Duration;
 import java.util.Map;
 
@@ -18,6 +20,7 @@ public class HTTPController {
     private URI uri;
     private HttpClient client = HttpClient.newHttpClient();
     final private String tokenHH = "APPLL1PEA3S05P522AL7PVATP6H5C8M9COCI9NT0OG5NV5DR305H5T6QCRN3TBT0";
+    final private String tokenSJ = "v3.r.139770910.7f045358b1e7983562768b2942ceb52569415be7.cbf0360e8dfcb4e95b0f78908b6df012e6726a46";
 
     public HTTPController(Map<String, String> parameters){
         if (parameters.get("site").equals("1")) {
@@ -25,7 +28,8 @@ public class HTTPController {
         } else {
             site = "SuperJob";
         }
-        vacancyName = parameters.get("vacancyName");
+        String rawName = parameters.get("vacancyName");
+        vacancyName = URLEncoder.encode(rawName, StandardCharsets.UTF_8); //Иначе если в названии вакансии есть пробел - программа крашнется
         area = parameters.get("area");
     }
 
@@ -42,6 +46,7 @@ public class HTTPController {
     }
 
     public String getRawVacancies(){
+        System.out.println("Начало поиска");
         createURI();
         System.out.println("URI = " + uri);
         HttpRequest request = createRequest();
@@ -66,7 +71,7 @@ public class HTTPController {
                     .uri(uri)
                     .version(HttpClient.Version.HTTP_2)
                     .header("User-Agent", "Mozilla/5.0")
-                    .header("X-Api-App-Id", "v3.r.139770910.7f045358b1e7983562768b2942ceb52569415be7.cbf0360e8dfcb4e95b0f78908b6df012e6726a46")
+                    .header("X-Api-App-Id", tokenSJ)
                     .GET()
                     .timeout(Duration.ofSeconds(10))
                     .build();

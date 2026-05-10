@@ -3,7 +3,6 @@ package ru.golyakovV.hhParser.model;
 public class HHSalary {
     private Integer from;
     private Integer to;
-    private String currency;
 
     public int getFrom() {
         if (from == null) {
@@ -19,7 +18,5 @@ public class HHSalary {
             return to;
         }
     }
-    public String getCurrency() {
-        return  currency;
-    }
+
 }

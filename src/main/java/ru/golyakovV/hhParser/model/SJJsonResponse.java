@@ -13,4 +13,7 @@ public class SJJsonResponse {
     public List<SJVacancy> getVacancies(){
         return vacancies;
     }
+    public int getCount() {
+        return count;
+    }
 }

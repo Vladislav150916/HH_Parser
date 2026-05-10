@@ -13,4 +13,7 @@ public class HHJsonResponse {
     public List<HHVacancy> getVacancies(){
         return vacancies;
     }
+    public int getCount() {
+        return count;
+    }
 }

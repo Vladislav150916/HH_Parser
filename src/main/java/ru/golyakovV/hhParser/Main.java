@@ -28,11 +28,8 @@ public class Main {
             System.out.println(v.getVacancyUrl());
             System.out.println("---");
         }
+
         ExcelWriter ew = new ExcelWriter(parameters);
         ew.write(vacancies);
-
-
-
-
     }
 }

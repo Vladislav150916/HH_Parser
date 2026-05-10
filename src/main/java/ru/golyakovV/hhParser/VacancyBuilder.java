@@ -13,6 +13,7 @@ public class VacancyBuilder {
     public static List<HHVacancy> getHHVacanciesList(String str){
         Gson gson = new Gson();
         HHJsonResponse jsonResponse = gson.fromJson(str, HHJsonResponse.class);
+        System.out.println("Найдено вакансий: " + jsonResponse.getCount() + "\n");
         List<HHVacancy> vacancies = jsonResponse.getVacancies();
         return vacancies;
     }
@@ -20,6 +21,7 @@ public class VacancyBuilder {
     public static List<SJVacancy> getSJVacanciesList(String str){
         Gson gson = new Gson();
         SJJsonResponse jsonResponse = gson.fromJson(str, SJJsonResponse.class);
+        System.out.println("Найдено вакансий: " + jsonResponse.getCount() + "\n");
         List<SJVacancy> vacancies = jsonResponse.getVacancies();
         return vacancies;
     }

@@ -4,10 +4,8 @@ import com.google.gson.annotations.SerializedName;
 
 public class HHVacancy extends VacancyAbstract {
     private String name;
-
     @SerializedName("alternate_url")
     private String vacancyUrl;
-
     private HHEmployer employer;
     private HHSalary salary;
 

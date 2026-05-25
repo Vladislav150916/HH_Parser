@@ -12,16 +12,17 @@ public class Main {
 
         Map<String, String> parameters = ParametersGetter.getParameters();
         HTTPController controller = new HTTPController(parameters);
-        String rawVacancies = controller.getRawVacancies();
 
+        System.out.println("Начало поиска");
         List<? extends VacancyAbstract> vacancies = null;
         if (controller.getSite().equals("HeadHunter")) {
-            vacancies = VacancyBuilder.getHHVacanciesList(rawVacancies);
+            vacancies = VacancyBuilder.getHHVacanciesList(controller);
         } else if (controller.getSite().equals("SuperJob")) {
-            vacancies = VacancyBuilder.getSJVacanciesList(rawVacancies);
+            vacancies = VacancyBuilder.getSJVacanciesList(controller);
         }
-
+        
         for (VacancyAbstract v : vacancies){
+            System.out.println();
             System.out.println(v.getName());
             System.out.println(v.getEmployer());
             System.out.println("Зарплата от " + v.getSalaryFrom() + " до " + v.getSalaryTo());

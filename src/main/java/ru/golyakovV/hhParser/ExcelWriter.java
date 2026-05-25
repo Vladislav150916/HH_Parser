@@ -27,7 +27,7 @@ public class ExcelWriter {
         area = parameters.get("areaToFileName");
         site = (parameters.get("site").equals("1"))? "HH" : "SJ";
         filePath = "src/main/results/" + site + "-" + vacancyName + "-" + area + "-" + date + ".xlsx";
-        System.out.println("Файл будет сохранен: " + filePath);
+        System.out.println("Путь сохранения файла: " + filePath);
     }
 
     public void write(List<? extends VacancyAbstract> vacancies){

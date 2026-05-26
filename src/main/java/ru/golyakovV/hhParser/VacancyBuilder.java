@@ -43,7 +43,7 @@ public class VacancyBuilder {
             }
             page++;
             try {
-                Thread.sleep(200);
+                Thread.sleep(75);
             } catch (InterruptedException e) {
                 System.out.println("Ошибка таймаута");
             }
@@ -64,24 +64,30 @@ public class VacancyBuilder {
 
             if (page == 0) {
                 totalFound = response.getCount();
-                System.out.println("Всего найдено вакансий: " + totalFound + "\nНа странице помещается " + controller.getPerPage() + " вакансий");
+                System.out.println("Всего найдено вакансий: " + totalFound);
+                if (totalFound > 520) {
+                    System.out.println("Количество найденных вакансий превышает лимит SuperJob API (520шт). Будут обработаны не все вакансии.");
+                }
+                System.out.println("На странице помещается " + controller.getPerPage() + " вакансий");
             }
 
             List<SJVacancy> pageVacancies = response.getVacancies();
             vacancies.addAll(pageVacancies);
-            System.out.println("Страница " + page + ": загружено " + pageVacancies.size() + " вакансий");
 
+            System.out.println("Обработана " + (page + 1) + " страница");
             if (vacancies.size() >= totalFound) {
+                break;
+            } else if (pageVacancies.isEmpty()) {
+                System.out.println("Поиск остановлен, SuperJob не выдает вакансии сверх лимита. Сформирован неполный список вакансий");
                 break;
             }
             page++;
             try {
-                Thread.sleep(200);
+                Thread.sleep(75);
             } catch (InterruptedException e) {
                 System.out.println("Ошибка таймаута");
             }
         }
-        System.out.println("Итого собрано вакансий: " + vacancies.size());
         return vacancies;
     }
 }

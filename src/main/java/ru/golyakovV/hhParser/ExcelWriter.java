@@ -38,8 +38,8 @@ public class ExcelWriter {
         Row headerRow = sheet.createRow(0);
         headerRow.createCell(1).setCellValue("Название вакансии");
         headerRow.createCell(2).setCellValue("Работодатель");
-        headerRow.createCell(3).setCellValue("Зарплата от");
-        headerRow.createCell(4).setCellValue("Зарплата до");
+        headerRow.createCell(3).setCellValue("Зарплата от (руб)");
+        headerRow.createCell(4).setCellValue("Зарплата до (руб)");
         headerRow.createCell(5).setCellValue("Ссылка");
 
         for (int i = 0; i < vacancies.size(); i++){
@@ -71,11 +71,12 @@ public class ExcelWriter {
                 cell.setCellStyle(style);
             }
         }
-        sheet.autoSizeColumn(0);
-        sheet.autoSizeColumn(1);
-        sheet.autoSizeColumn(2);
-        sheet.autoSizeColumn(3);
-        sheet.autoSizeColumn(4);
+        sheet.setColumnWidth(0, 1280);
+        sheet.setColumnWidth(1, 21505);
+        sheet.setColumnWidth(2, 18680);
+        sheet.setColumnWidth(3, 4860);
+        sheet.setColumnWidth(4, 4860);
+        sheet.setColumnWidth(5, 16390);
 
         try (FileOutputStream fos = new FileOutputStream(filePath)){
             wb.write(fos);

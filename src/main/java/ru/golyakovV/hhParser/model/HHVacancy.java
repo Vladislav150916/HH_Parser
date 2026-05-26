@@ -18,18 +18,37 @@ public class HHVacancy extends VacancyAbstract {
     public String getEmployer() {
         return employer.getName();
     }
-    public int getSalaryFrom(){
+    public int getSalaryFrom() {
         if (salary == null) {
             return 0;
         } else {
             return salary.getFrom();
         }
     }
-    public int getSalaryTo(){
+    public int getSalaryTo() {
         if (salary == null) {
             return 0;
         } else {
             return salary.getTo();
         }
+    }
+    public String getSalary() {
+        String salary = "Зарплата ";
+        if (getSalaryFrom() == getSalaryTo()) {
+            if (getSalaryFrom() == 0) {
+                salary += "не указана";
+            } else {
+                salary += getSalaryFrom() + " руб";
+            }
+            return salary;
+        }
+        if (getSalaryFrom() != 0) {
+            salary += "от " + getSalaryFrom() + " ";
+        }
+        if (getSalaryTo() != 0) {
+            salary += "до " + getSalaryTo() + " ";
+        }
+        salary += "руб";
+        return salary;
     }
 }

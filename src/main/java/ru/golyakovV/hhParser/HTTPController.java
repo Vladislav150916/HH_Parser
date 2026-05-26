@@ -31,6 +31,7 @@ public class HTTPController {
             site = "HeadHunter";
         } else {
             site = "SuperJob";
+            perPage = 40; //Максимально доступное количество вакансий на страницу для SJ
         }
         String rawName = parameters.get("vacancyName");
         vacancyName = URLEncoder.encode(rawName, StandardCharsets.UTF_8); //Иначе если в названии вакансии есть пробел - программа крашнется

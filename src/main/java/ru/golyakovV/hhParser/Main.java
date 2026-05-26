@@ -20,12 +20,12 @@ public class Main {
         } else if (controller.getSite().equals("SuperJob")) {
             vacancies = VacancyBuilder.getSJVacanciesList(controller);
         }
-        
+
         for (VacancyAbstract v : vacancies){
             System.out.println();
             System.out.println(v.getName());
             System.out.println(v.getEmployer());
-            System.out.println("Зарплата от " + v.getSalaryFrom() + " до " + v.getSalaryTo());
+            System.out.println(v.getSalary());
             System.out.println(v.getVacancyUrl());
             System.out.println("---");
         }

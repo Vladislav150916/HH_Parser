@@ -8,4 +8,5 @@ public abstract class VacancyAbstract {
     public abstract String getEmployer();
     public abstract int getSalaryFrom();
     public abstract int getSalaryTo();
+    public abstract String getSalary();
 }

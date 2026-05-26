@@ -29,4 +29,23 @@ public class SJVacancy extends VacancyAbstract{
     public int getSalaryTo(){
         return salaryTo;
     }
+    public String getSalary() {
+        String salary = "Зарплата ";
+        if (getSalaryFrom() == getSalaryTo()) {
+            if (getSalaryFrom() == 0) {
+                salary += "не указана";
+            } else {
+                salary += getSalaryFrom() + " руб";
+            }
+            return salary;
+        }
+        if (getSalaryFrom() != 0) {
+            salary += "от " + getSalaryFrom() + " ";
+        }
+        if (getSalaryTo() != 0) {
+            salary += "до " + getSalaryTo() + " ";
+        }
+        salary += "руб";
+        return salary;
+    }
 }

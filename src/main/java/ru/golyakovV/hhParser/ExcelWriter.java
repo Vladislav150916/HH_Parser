@@ -11,6 +11,9 @@ import ru.golyakovV.hhParser.model.VacancyAbstract;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
@@ -19,15 +22,30 @@ public class ExcelWriter {
     private String vacancyName;
     private String area;
     private String site;
-    private String filePath;
+    private Path filePath;
     private LocalDate date = LocalDate.now();
 
     public ExcelWriter(Map<String, String> parameters){
         vacancyName = parameters.get("vacancyName");
         area = parameters.get("areaToFileName");
         site = (parameters.get("site").equals("1"))? "HH" : "SJ";
-        filePath = "src/main/results/" + site + "-" + vacancyName + "-" + area + "-" + date + ".xlsx";
-        System.out.println("Путь сохранения файла: " + filePath);
+        filePath = getPath();
+    }
+
+    private Path getPath() {
+        Path path;
+        Path resultsDirectory = Paths.get("results");
+        if (!Files.exists(resultsDirectory)) {
+            try {
+                Files.createDirectories(resultsDirectory);
+                System.out.println("Создана папка results");
+            } catch (IOException e) {
+                System.out.println("Ошибка создания папки results");
+            }
+        }
+        String fileName = site + "-" + vacancyName + "-" + area + "-" + date + ".xlsx";
+        path = resultsDirectory.resolve(fileName);
+        return path;
     }
 
     public void write(List<? extends VacancyAbstract> vacancies){
@@ -78,7 +96,7 @@ public class ExcelWriter {
         sheet.setColumnWidth(4, 4860);
         sheet.setColumnWidth(5, 16390);
 
-        try (FileOutputStream fos = new FileOutputStream(filePath)){
+        try (FileOutputStream fos = new FileOutputStream(filePath.toFile())){
             wb.write(fos);
             wb.close();
             System.out.println("Файл сохранен");

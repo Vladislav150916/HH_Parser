@@ -5,8 +5,8 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
+import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
 
 public class AreaConverter {
 
@@ -15,8 +15,8 @@ public class AreaConverter {
         String foundId = null;
         String areasJson = "";
 
-        try {
-            areasJson = new String(Files.readAllBytes(Paths.get("src/main/resources/areas.json")));
+        try (InputStream is = AreaConverter.class.getClassLoader().getResourceAsStream("areas.json")){
+            areasJson = new String(is.readAllBytes(), StandardCharsets.UTF_8);
         } catch (IOException e) {
             System.out.println("Ошибка чтения справочника: " + e.getMessage());
             return null;

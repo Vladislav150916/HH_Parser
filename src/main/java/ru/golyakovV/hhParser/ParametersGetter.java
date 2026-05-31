@@ -43,9 +43,9 @@ public class ParametersGetter {
         boolean isTownCorrect = false;
         while (!isTownCorrect) {
             String area = in.nextLine();
-            if (AreaConverter.getSityID(area) != null) {
+            if (AreaConverter.getCityID(area) != null) {
                 if (site.equals("1")) {
-                    parameters.put("area", AreaConverter.getSityID(area));
+                    parameters.put("area", AreaConverter.getCityID(area));
                     parameters.put("areaToFileName", area);
                 } else {
                     parameters.put("area", area);

@@ -3,14 +3,12 @@ package ru.golyakovV.hhParser;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 
 public class AreaConverter {
-
-    public static String getSityID(String area) {
+    public static String getCityID(String area) {
         String cityName = area.trim();
         String foundId = null;
         String areasJson = "";
